@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import Select
 driver = webdriver.Chrome(executable_path="C:\\webDrivers\\chromedriver_95.exe")
 driver.maximize_window()
 
-# Scenario: Ensure the functionality to add/remove button is correct
+# Scenario: Click checkboxes and validate clicked or unclicked status
 driver.get("https://the-internet.herokuapp.com/")
 driver.find_element_by_link_text('Checkboxes').click()
 
@@ -15,6 +15,7 @@ for box in checkboxes:
 time.sleep(5)
 
 
+# Scenario: Select Option 1 then Option 2 on dropdown
 driver.get("https://the-internet.herokuapp.com/")
 driver.find_element_by_link_text('Dropdown').click()
 dropdown = Select(driver.find_element_by_id('dropdown'))
