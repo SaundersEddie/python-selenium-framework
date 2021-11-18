@@ -1,0 +1,85 @@
+Scenario: Ensure the functionality to add/remove button is correct
+    Given I am on the button testing page
+    When I click the button labelled Add Button
+    Then the page should contain a button labelled Delete
+    When I click the button labelled Delete
+    The button labelled Delete will disappear
+
+Scenario: Ensure the functionality to add/remove buttons is correct
+    Given I am on the button testing page
+    When I click the button labelled Add Button five times
+    Then the page should contain five buttons labelled Delete
+    When I click a button labelled Delete five times
+    The button labelled Delete will disappear
+
+Scenario: Click checkboxes and validate clicked or unclicked status
+    Given I am on the checkboxes page
+    When I click Checkbox 1 it should be selected
+    When I click Checkbox 2 it should be unselected
+    Then we should validate checkbox status
+
+Scenario: Select Option 1 then Option 2 on dropdown
+    Given I am on the dropdown page
+    When I select the dropdown I should see two options
+    Then I select Option 1
+    Then I select Option 2
+    Then I should validate Option 2 is displayed in Dropdown
+
+Scenario: When I enter a web page I close a modal popup
+    Given I am on a web page with an on entry modal
+    When I click the modal
+    Then I expect it to close
+    Then I verify the modal is closed
+
+Scenario: When I exit a web page I close a modal popup
+    Given I am on a web page with an on exit intent modal
+    When I attempt to leave the page
+    Then I expect to see a modal popup
+    Then I close the modal popup
+    Then verify the modal popup is closed
+
+Scenario: When I click on the OK button I close a JS Alert
+    Given I am on a web page with an alert button
+    When I click the 'Click for JS Alert' button
+    Then I expect to see a JavaScript alert box
+    Then I accept the JavaScript alert by clicking OK
+    Then verify the result field shows: You successfully clicked an alert
+
+Scenario: When I click on the alert request button I confirm a JS Alert
+    Given I am on a web page with an alert button
+    When I click the 'Click for JS Confirm' button
+    Then I expect to see a JavaScript confirm box
+    Then I accept the JavaScript alert by clicking OK
+    Then verify the result field shows: You clicked: Ok
+
+Scenario: When I click on the alert request button I cancel a JS Alert
+    Given I am on a web page with an alert button
+    When I click the 'Click for JS Confirm' button
+    Then I expect to see a JavaScript confirm box
+    Then I cancel the JavaScript alert by clicking Cancel
+    Then verify the result field shows: You clicked: Cancel
+
+Scenario: When I click on the alert request button I enter text in a prompt box
+    Given I am on a web page with an alert button
+    When I click the 'Click for JS Prompt' button
+    Then I expect to see a JavaScript prompt box
+    Then I enter 'Testing Prompt Box' and click the Ok option
+    Then verify the result field shows: You entered: Testing Prompt Box
+
+Scenario: When I enter a number in an input field I can change it's value using the down arrow key
+    Given I am on a web page with a number input box
+    Then I can enter the number 25
+    When I then press the down arrow 5 times
+    Then I expect and verify the number has changed to 25
+
+Scenario: When I enter a number in an input field I can change it's value using the up arrow key
+    Given I am on a web page with a number input box
+    Then I can enter the number 25
+    When I then press the up arrow 5 times
+    Then I expect and verify the number has changed to 30
+
+Scenario: When I click a button to get a new message it should not duplicate the existing one
+    Given I am on a web page with a message banner
+    When I click the 'Click here' element
+    Then I should see a new message in the notification bar
+    Then I should expect the new and prior notification to be different
