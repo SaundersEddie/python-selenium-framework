@@ -1,5 +1,8 @@
 # Playing with pytest
+import pytest
 
+
+@pytest.mark.smoke
 def test_firstTest():
     print("First Test")
 
