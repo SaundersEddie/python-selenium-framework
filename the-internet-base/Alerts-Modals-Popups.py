@@ -10,11 +10,11 @@ driver.get("https://the-internet.herokuapp.com/")
 driver.find_element_by_link_text('Entry Ad').click()
 time.sleep(5)
 driver.find_element_by_css_selector(".modal-footer > p").click()
-time.sleep(5)
 
-# Scenario: When I exit a web page I close a modal popup
+# Scenario: When I click on the OK button I close a JS Alert
 driver.get("https://the-internet.herokuapp.com/")
-driver.find_element_by_link_text('Exit Intent').click()
+driver.find_element_by_link_text('JavaScript Alerts').click()
+driver.find_element_by_xpath("//button[contains(text(),'Click for JS Alert')]").click()
 time.sleep(5)
 
 
